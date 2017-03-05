@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+How would you like us to contact you in the future?
+
+<br>
+<br>
+
+<form method="post" action="">
+    {% csrf_token %}
+    {{ emergency_contact_form }}
+    <input type="submit" value="Add Emergency Contact info" />
+</form>
+
+<br>
+<br>
+
+There is no House that matches that name! Please double check and try again
+
+</body>
+</html>
