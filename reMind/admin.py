@@ -19,7 +19,7 @@ class HomeAdmin(admin.ModelAdmin):
     def queryset(self, request):
         if request.user.is_superuser:
             return self.model.objects.all()
-        return self.model.objects.filter(author=request.user)
+        return self.model.objects.filter(owner=request.user)
 
     def save_model(self, request, obj, form, change):
         if not change:
@@ -42,7 +42,7 @@ class SensorAdmin(admin.ModelAdmin):
     def queryset(self, request):
         if request.user.is_superuser:
             return self.model.objects.all()
-        return self.model.objects.filter(author=request.user)
+        return self.model.objects.filter(owner=request.user)
 
     def save_model(self, request, obj, form, change):
         if not change:
@@ -66,7 +66,7 @@ class EmergencyContactAdmin(admin.ModelAdmin):
     def queryset(self, request):
         if request.user.is_superuser:
             return self.model.objects.all()
-        return self.model.objects.filter(author=request.user)
+        return self.model.objects.filter(owner=request.user)
 
     def save_model(self, request, obj, form, change):
         if not change:

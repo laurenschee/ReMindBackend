@@ -25,5 +25,6 @@ urlpatterns = [
     url(r'^create_user/', views.create_user, name='create_user'),
     url(r'^create_emergency_contact/', homesense_views.create_emergency_contact, name='create_emergency_contact'),
     url(r'^send_alert/$', alert_views.send_alert, name='send_alert'),
+    url(r'^send_email_alert/$', alert_views.send_email_alert, name='send_email_alert'),
     url(r'^send_alert_2/$', homesense_views.AlertView.as_view()), #for testing
 ]
