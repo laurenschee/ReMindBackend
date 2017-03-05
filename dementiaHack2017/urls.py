@@ -16,11 +16,12 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from . import views
-from homeSense import views as homesense_views
+from reMind import views as homesense_views
 from alerts import views as alert_views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^remind_home/', views.home_page, name='ReMind Home'),
     url(r'^create_user/', views.create_user, name='create_user'),
     url(r'^create_emergency_contact/', homesense_views.create_emergency_contact, name='create_emergency_contact'),
     url(r'^send_alert/$', alert_views.send_alert, name='send_alert'),

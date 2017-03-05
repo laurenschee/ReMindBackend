@@ -1,15 +1,23 @@
-from django.forms import ModelForm
+from django import forms
 from django.contrib.auth.models import User
-from homeSense.models import EmergencyContact
+from reMind.models import Home, Sensor, EmergencyContact
 
 
-class UserForm(ModelForm):
+class UserForm(forms.ModelForm):
     class Meta:
         model = User
         fields = ('username', 'email', 'password')
 
 
-# class EmergencyContactForm(ModelForm):
+# class HomeForm(forms.ModelForm):
+#     home_name = forms.CharField()
+#
+#     def save(self, commit=True):
+#         home_name = self.cleaned_data.get('home_name', None)
+#         self.instance.nickname = home_name
+#         self.instance.save()
+#         return super(HomeForm, self).save(commit=commit)
+#
 #     class Meta:
-#         model = EmergencyContact
-#         fields = ('first_name', 'last_name', 'phone', 'email', )
+#         model = Home
+#         fields = ('owner', 'home_name')

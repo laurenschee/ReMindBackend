@@ -12,9 +12,10 @@ from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.response import Response
 from rest_framework import status
 from django_twilio.decorators import twilio_view
+from alerts.models import Alert
 
 from .forms import EmergencyContactForm
-from .models import EmergencyContact, Home, Alert
+from .models import EmergencyContact, Home
 from .serializers import AlertSerializer
 from .notification import sendEmail, sendTextMessage
 
@@ -62,6 +63,8 @@ def create_emergency_contact(request):
         {'emergency_contact_form': form}
     )
 
+
+#test 1 (didn't work)
 @twilio_view
 def send_alert(request):
     if request.method == 'GET':
@@ -86,6 +89,7 @@ def send_alert(request):
     return Response({'True': 'SUCCESS'}, status=status.HTTP_200_OK)
 
 
+# test 2 (didn't work with twililo to send sms)
 class AlertView(APIView):
     """
     User goals view set

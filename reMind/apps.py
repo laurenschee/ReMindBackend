@@ -4,4 +4,4 @@ from django.apps import AppConfig
 
 
 class HomesenseConfig(AppConfig):
-    name = 'homeSense'
+    name = 'reMind'
